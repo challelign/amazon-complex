@@ -16,7 +16,7 @@ const Register = () => {
                    onChange={(e) => setEmail(e.target.value)}
                    autoFocus
             />
-            <button type="submit" className="btn btn-raised pt-2">Register /{email}</button>
+            <button type="submit" className="btn btn-raised pt-2">Register</button>
         </form>
     );
 
