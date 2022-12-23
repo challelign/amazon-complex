@@ -1,11 +1,47 @@
 import React, {useState} from "react";
+import {auth} from "../../firebase";
+
+import {toast} from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css"
 
 const Register = () => {
 
     const [email, setEmail] = useState("");
 
-    const handleSubmit = () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault()
 
+        if (!email) {
+            toast.error("Email and Password is required")
+            return;
+        }
+
+        try {
+            console.log("ENV ----< ", process.env.REACT_APP_REGISTER_REDIRECT_URL)
+
+            const config = {
+                url: process.env.REACT_APP_REGISTER_REDIRECT_URL,
+                handleCodeInApp: true
+            }
+
+            await auth.sendSignInLinkToEmail(email, config)
+
+
+            toast.success(
+                `Email is sent to ${email} . Click the link to complete your registration`
+            )
+        } catch (error) {
+            console.log(error)
+            toast.error(error.message)
+        }
+
+
+        //    save user email to local storage
+        window.localStorage.setItem('emailForRegistration', email)
+
+        //clear state
+        setEmail("")
     }
 
     const registerForm = () => (
