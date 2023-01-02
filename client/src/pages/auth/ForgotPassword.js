@@ -18,6 +18,9 @@ const ForgetPassword = ({history}) => {
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false)
 
+
+    // start route redirect
+
     const {user} = useSelector((state) => ({...state}));
 
 
@@ -25,6 +28,9 @@ const ForgetPassword = ({history}) => {
 
         if (user && user.token) history.push('/')
     }, [user])
+
+    // end route redirect
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();

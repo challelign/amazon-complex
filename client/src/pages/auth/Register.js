@@ -8,16 +8,18 @@ import {Button} from "antd";
 import {MailOutlined} from "@ant-design/icons";
 
 import {useDispatch, useSelector} from "react-redux";
+
 const Register = ({history}) => {
 
     const [email, setEmail] = useState("");
 
-
+    // start route redirect
     const {user} = useSelector((state) => ({...state}));
     useEffect(() => {
 
         if (user && user.token) history.push('/')
     }, [user])
+    // end route redirect
 
 
     const handleSubmit = async (e) => {

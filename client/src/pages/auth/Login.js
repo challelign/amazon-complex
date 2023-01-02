@@ -25,12 +25,13 @@ const Login = ({history}) => {
 
     let dispatch = useDispatch()
 
-
+    // start route redirect
     const {user} = useSelector((state) => ({...state}));
     useEffect(() => {
 
         if (user && user.token) history.push('/')
     }, [user])
+    // end route redirect
 
     const handleSubmit = async (e) => {
         e.preventDefault()

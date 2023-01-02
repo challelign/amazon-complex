@@ -4,12 +4,19 @@ import {auth} from "../../firebase";
 import {toast} from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css"
+import {useSelector} from "react-redux";
 
 const RegisterComplete = ({history}) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    // start route redirect
+    const {user} = useSelector((state) => ({...state}));
+    useEffect(() => {
 
+        if (user && user.token) history.push('/')
+    }, [user])
+    // end route redirect
 
     useEffect(() => {
 
