@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {auth, googleAuthProvider} from "../../firebase";
 
 import {toast} from "react-toastify";
@@ -10,7 +10,7 @@ import {
     MailOutlined
 } from "@ant-design/icons";
 
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 import "react-toastify/dist/ReactToastify.css"
 
@@ -24,6 +24,13 @@ const Login = ({history}) => {
     const [loading, setLoading] = useState(false);
 
     let dispatch = useDispatch()
+
+
+    const {user} = useSelector((state) => ({...state}));
+    useEffect(() => {
+
+        if (user && user.token) history.push('/')
+    }, [user])
 
     const handleSubmit = async (e) => {
         e.preventDefault()

@@ -18,6 +18,14 @@ const ForgetPassword = ({history}) => {
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false)
 
+    const {user} = useSelector((state) => ({...state}));
+
+
+    useEffect(() => {
+
+        if (user && user.token) history.push('/')
+    }, [user])
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -62,12 +70,12 @@ const ForgetPassword = ({history}) => {
                 </div>
 
                 <Button onClick={handleSubmit}
-                    type="primary"
-                    className="mb-3"
-                    block
-                    shape="round"
-                    size="large"
-                    disabled={!email}
+                        type="primary"
+                        className="mb-3"
+                        block
+                        shape="round"
+                        size="large"
+                        disabled={!email}
                 > Submit</Button>
             </form>
         </div>
