@@ -16,7 +16,7 @@ const RegisterComplete = ({history}) => {
         // console.log("Saved Email From Local Storage-- --> ", window.localStorage.getItem('emailForRegistration'))
         setEmail(window.localStorage.getItem('emailForRegistration'));
         console.log("Href url location --->", window.location.href)
-    }, [])
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
