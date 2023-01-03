@@ -15,6 +15,7 @@ import RegisterComplete from "./pages/auth/RegisterComplete";
 import {auth} from "./firebase";
 import {useDispatch} from "react-redux";
 import ForgetPassword from "./pages/auth/ForgotPassword";
+import PageNotFound from "./pages/PageNotFound";
 
 const App = () => {
 
@@ -54,6 +55,8 @@ const App = () => {
                 <Route exact path="/register" component={Register}/>
                 <Route exact path="/register/complete" component={RegisterComplete}/>
                 <Route exact path="/forgot/password" component={ForgetPassword}/>
+                <Route path="*" component={PageNotFound}/>
+
             </Switch>
         </>
     );

@@ -1,0 +1,287 @@
+/*
+==============================
+
+->Node
+Node.js is an open-source and cross-platform runtime environment for executing JavaScript code outside a browser.
+You need to remember that NodeJS is not a framework and it’s not a programming language.
+Most people are confused and understand it’s a framework or a programming language.
+We often use Node.js for building back-end services like APIs like Web App or Mobile App.
+It’s used in production by large companies such as Paypal, Uber, Netflix, Walmart, and so on.
+
+It is widely used in developing APIs and microservices from small to large companies.
+It is a great tool as this enables developers to use JavaScript both on the server and client-side.
+
+Features of NodeJS: There are other programming languages also
+which we can use to build back-end services so what makes Node.js different I am going to explain.
+
+-It’s easy to get started and can be used for prototyping
+(prototyping is SDLC This model is used when the customers do not know the exact project requirements beforehand) and agile development
+-It provides fast and highly scalable services
+-It uses JavaScript everywhere, so it’s easy for a JavaScript programmer to build back-end services using Node.js
+-Source code cleaner and consistent.
+-Large ecosystem for open source library.
+-It has Asynchronous or Non-blocking nature.
+
+Advantages of NodeJS: Here are the benefits of using Node.js
+
+1.Easy Scalability:
+Developers prefer to use Node.js because it is easily scaling the application in both horizontal and vertical directions.
+We can also add extra resources during the scalability of the application.
+2.Real-time web apps:
+If you are building a web app you can also use PHP, and it will take the same amount of time when you use Node.js,
+But if I am talking about building chat apps or gaming apps Node.js is much more preferable because of faster synchronization.
+Also, the event loop avoids HTTP overloaded for Node.js development.
+3.Fast Suite:
+NodeJs runs on the V8 engine developed by Google.
+Event loop in NodeJs handles all asynchronous operation so NodeJs acts like a fast suite
+and all the operations can be done quickly like reading or writing in the database, network connection, or file system
+4.Easy to learn and code:
+NodeJs is easy to learn and code because it uses JavaScript.
+If you are a front-end developer and have a good grasp of JavaScript you can easily learn and build the application on NodeJS
+5.Advantage of Caching:
+It provides the caching of a single module.
+Whenever there is any request for the first module, it gets cached in the application memory, so you don’t need to re-execute the code.
+6.Data Streaming:
+In NodeJs HTTP request and response are considered as two separate events.
+They are data stream so when you process a file at the time of loading it will reduce the overall time
+and will make it faster when the data is presented in the form of transmissions.
+It also allows you to stream audio and video files at lightning speed.
+7.Hosting:
+ PaaS (Platform as a Service) and Heroku are the hosting platforms for NodeJS application deployment
+which is easy to use without facing any issue.
+8.Corporate Support:
+Most of the well-known companies like Walmart, Paypal, Microsoft, Yahoo are using NodeJS for building the applications.
+NodeJS uses JavaScript, so most of the companies are combining front-end and backend Teams together into a single unit.
+
+Application of NodeJS: NodeJS should be preferred to build:
+
+Real-Time Chats,
+Complex Single-Page applications,
+Real-time collaboration tools,
+Streaming apps
+JSON APIs based application
+
+*/
+
+==============================
+
+
+/*
+->EXPRESS
+Fast, unopinionated, minimalist web framework for Node.js
+Express.js is a small framework that works on top of Node.js web server functionality to simplify its APIs and add helpful new features.
+It makes it easier to organize your application’s functionality with middleware and routing.
+It adds helpful utilities to Node.js HTTP objects and facilitates the rendering of dynamic HTTP objects.
+
+Web Applications
+Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+    APIs
+With a myriad of HTTP utility methods and middleware at your disposal, creating a robust API is quick and easy.
+    Performance
+Express provides a thin layer of fundamental web application features, without obscuring Node.js features that you know and love.
+    Frameworks
+Many popular frameworks are based on Express.
+
+
+Why Express ?
+
+-Develops Node.js web applications quickly and easily.
+-It’s simple to set up and personalise.
+-Allows you to define application routes using HTTP methods and URLs.
+-Includes a number of middleware modules that can be used to execute additional requests and responses activities.
+-Simple to interface with a variety of template engines, including Jade, Vash, and EJS.
+-Allows you to specify a middleware for handling errors.
+
+var express = require('express');
+var app = express();
+app.get('/', function (req, res) {
+    res.send("Welocme to GeeksforGeeks!");
+});
+app.listen(5000);
+
+*/
+
+==============================
+/*
+->MORGAN
+Morgan: Morgan is an HTTP request level Middleware.
+It is a great tool that logs the requests along with some other information depending upon its configuration and the preset used.
+It proves to be very helpful while debugging and also if you want to create Log files.
+HTTP request logger middleware for node.js
+It simplifies the process of logging requests to your application.
+
+morgan is a Node.js and Express middleware to log HTTP requests and errors, and simplifies the process.
+In Node.js and Express, middleware is a function that has access to the request and response lifecycle methods,
+and the next() method to continue logic in your Express server.
+
+morgan(format, options)
+Create a new morgan logger middleware function using the given format and options.
+The format argument may be a string of a predefined name (see below for the names),
+ a string of a format string, or a function that will produce a log entry.
+
+The format function will be called with three arguments tokens, req, and res,
+where tokens is an object with all defined tokens, req is the HTTP request and res is the HTTP response.
+The function is expected to return a string that will be the log line, or undefined / null to skip logging.
+
+*/
+
+==============================
+/*
+->body-parser
+Node.js body parsing middleware.
+
+Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
+
+Note As req.body’s shape is based on user-controlled input,
+all properties and values in this object are untrusted and should be validated before trusting.
+For example, req.body.foo.toString() may fail in multiple ways,
+for example the foo property may not be there or may not be a string,
+and toString may not be a function and instead a string or other user input.
+
+This does not handle multipart bodies, due to their complex and typically large nature.
+For multipart bodies, you may be interested in the following modules:
+API
+
+The bodyParser object exposes various factories to create middlewares.
+All middlewares will populate the req.body property with the parsed body when
+the Content-Type request header matches the type option, or an empty object ({})
+if there was no body to parse, the Content-Type was not matched, or an error occurred.
+bodyParser.json([options])
+Returns middleware that only parses json and only looks at requests where the Content-Type header matches the type option.
+This parser accepts any Unicode encoding of the body and supports automatic inflation of gzip and deflate encodings.
+
+A new body object containing the parsed data is populated on the request object after the middleware (i.e. req.body).
+*/
+
+==============================
+/*
+->cors
+CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
+
+What is CORS?
+CORS stands for Cross-Origin Resource Sharing. It allows us to relax the security applied to an API.
+This is done by bypassing the Access-Control-Allow-Origin headers, which specify which origins can access the API.
+
+In other words, CORS is a browser security feature that restricts cross-origin
+HTTP requests with other servers and specifies which domains access your resources.
+
+Check this guide to learn more about the CORS policy.
+
+How CORS works
+An API is a set procedure for two programs to communicate. This means that API resources are consumed by other clients and servers.
+
+Here are two scenarios:
+check word file
+The CORS same-origin concept
+
+The client and the server have the same origin. In this example, accessing resources will be successful.
+You’re trying to access resources on your server, and the same server handles the request.
+
+The CORS cross-origin concept
+
+The client and server have a different origin from each other, i.e., accessing resources from a different server.
+In this case, trying to make a request to a resource on the other server will fail.
+
+This is a security concern for the browser. CORS comes into play to disable this mechanism and allow access to these resources.
+CORS will add a response header access-control-allow-origins and specify which origins are permitted.
+CORS ensures that we are sending the right headers.
+
+Therefore, a public server handling a public API will add a CORS related header to the response.
+The browser on the client machine will look at this header and decide whether it is safe to deliver that response to the client or not.
+
+*/
+
+==============================
+
+
+/*
+->cookie-parser
+
+Parse Cookie header and populate req.cookies with an object keyed by the cookie names.
+Optionally you may enable signed cookie support by passing a secret string,
+which assigns req.secret so it may be used by other middleware.
+
+
+Express Cookie-Parser – Signed and Unsigned Cookies
+
+A cookie is a piece of data that is sent to the client-side with a request
+and is stored on the client-side itself by the Web Browser the user is currently using. With the help of cookies –
+
+It is easy for websites to remember the user’s information
+It is easy to capture the user’s browsing history
+It is also useful in storing the user’s sessions
+The session makes requests to all the servers using a secret Id.
+The information is stored on the server that is linked to this secret ID.
+
+
+
+
+
+*/
+==============================
+
+->cookie-session
+Simple cookie-based session middleware.
+
+A user session can be stored in two main ways with cookies: on the server or on the client.
+This module stores the session data on the client within a cookie,
+while a module like express-session stores only a session identifier on the client within a cookie
+and stores the session data on the server, typically in a database.
+
+The following points can help you choose which to use:
+
+.cookie-session- does not require any database / resources on the server side,
+though the total session data cannot exceed the browser’s max cookie size.
+.cookie-session- can simplify certain load-balanced scenarios.
+.cookie-session- can be used to store a “light” session and include an identifier
+to look up a database-backed secondary store to reduce database lookups.
+
+==============================
+/*
+Understanding body-parser, cookie-parser, morgan, nodemon, pm2, serve-favicon, cors, dotenv, fs-extra, moment in Express.js
+
+Express.js is a web application framework for Node.js that makes it easy to build web applications and APIs. There are a number of middleware modules that are commonly used with Express.js to add additional functionality. Here's a brief description of each:
+
+body-parser:
+This middleware is used to parse the body of an HTTP request, which can contain JSON data or other types of data.
+It allows you to access this data in your route handlers and use it to create or modify resources.
+
+cookie-parser:
+This middleware is used to parse cookies that are sent with HTTP requests.
+It allows you to read and write cookies in your route handlers, which can be used for things like session management.
+
+morgan:
+This middleware is used for logging HTTP requests.
+It can log request details like the method, path, and response status code to a file or the console.
+
+nodemon:
+This is a utility that automatically restarts your Node.js server when it detects changes in your code.
+It's often used during development to make it easier to work on your server without having to manually restart
+it every time you make a change.
+
+pm2:
+This is a process manager for Node.js applications.
+It can be used to run your server in the background and monitor it for crashes or other issues.
+It can also be used to restart your server if it crashes or if you make code changes.
+
+serve-favicon:
+This middleware serves a favicon (a small icon that appears in the browser's address bar) to the client.
+It can be used to set a custom favicon for your site or API.
+
+cors: This middleware is used to enable CORS (Cross-Origin Resource Sharing) on your server.
+CORS is a security feature that allows a server to specify which origins are allowed to access its resources.
+
+dotenv:
+This module is used to load environment variables from a .env file into the process.env object in Node.js.
+This can be useful for storing sensitive information like passwords or API keys that you don't want to hardcode into your application.
+
+fs-extra:
+This module is a thin wrapper around the built-in fs module in Node.js, with additional methods for tasks like copying files and creating directories. It can be used to perform file system operations in your route handlers or other parts of your application.
+
+moment:
+This is a popular library for working with dates and times in JavaScript.
+It can be used to parse, validate, manipulate, and format dates in your route handlers or other parts of your application.
+
+
+*/
+==============================
